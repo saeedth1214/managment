@@ -21,8 +21,8 @@ class CompanyHasPackage extends Migration
             $table->timestamp("end_at");
             
 
-            $table->foreign('company_id')->references('id')->on('companies');
-            $table->foreign('package_id')->references('id')->on('packages');
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('package_id')->references('id')->on('packages')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

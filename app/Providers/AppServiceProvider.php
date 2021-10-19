@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\services\Filter\FilterManagement;
+use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,16 +16,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
-    }
+        $this->mergeConfigFrom(app_path()."\services\MakeRequest\Drivers"."/route_request.php", 'request');
 
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
+
+    }
     public function boot()
     {
-        //
+
     }
 }

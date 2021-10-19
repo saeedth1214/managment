@@ -1,9 +1,12 @@
 
 @import "../dist/css/adminlte.css";
+/* @import "../dist/css/bootstrap.min.css"; */
 @import "../dist/css/bootstrap-rtl.min.css";
 @import "../dist/css/font-awesome.min.css";
+@import "../dist/css/jquery.md.bootstrap.datetimepicker.style.css";
+
 @import "../dist/css/custom-style.css";
-/* @import "../dist/css/persian-datepicker.min.css"; */
 @import "../dist/css/custom.css";
 
 
+@import "../dist/css/select2.css";

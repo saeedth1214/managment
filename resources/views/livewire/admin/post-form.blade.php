@@ -19,8 +19,6 @@
         <div class="row">
           <div class="col-md-12">
             <div class="card-body">
-
-   
    <form wire:submit.prevent= {{ $updateUser ?"update":"create" }}>
                   <div class="form-group">
                     <label for="full_name">نام کامل</label>
@@ -45,15 +43,11 @@
                     <input type="text" wire:model.defer="state.mobile" class="form-control @error('mobile') is-invalid @enderror">
                     @error('mobile')<div class="invalid-feedback"> {{$message}}</div>@enderror
                   </div>
-
-
                   <div class="form-group">
                     <label for="phone">تلفن منزل</label>
                     <input type="text"  wire:model.defer="state.phone" class="form-control @error('phone') is-invalid @enderror">
                     @error('phone')<div class="invalid-feedback"> {{$message}}</div>@enderror
                   </div>
-
-
                   <div class="form-group">
                     <label for="password">رمزعیور</label>
                     <input type="password" wire:model.defer="state.password" class="form-control @error('password') is-invalid @enderror">
@@ -79,10 +73,6 @@
                   <button type="button" class="btn btn-secondary btn-sm mr-2" data-dismiss="modal">بستن</button>
                 </div>
               </form>
-
-
-     
-
             </div>
                 </div>
             </div>

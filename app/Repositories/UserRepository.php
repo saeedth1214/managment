@@ -41,4 +41,25 @@ class UserRepository
             return null;
         }
     }
+
+    public function activeUser($userId)
+    {
+        try {
+            $user=$this->model::query()->find($userId);
+            
+            return $user->update(['active'=>!$user->active]);
+        } catch (\Throwable $th) {
+            // return $th->getMessage();
+            return null;
+        }
+    }
+
+    public function getUserForCreateCompany ()
+    {
+        try {
+            return $this->model::query()->pluck('full_name', 'id')->toArray();
+        } catch (\Throwable $th) {
+            return null;
+        }
+    }
 }

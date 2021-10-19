@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
-use Carbon\Carbon;
-use Illuminate\Support\Carbon as IlluminateCarbon;
+
 
 class User extends Authenticatable
 {
@@ -22,6 +21,8 @@ class User extends Authenticatable
      *
      * @var string[]
      */
+
+    public $paginate=2;
     protected $fillable = [
         'full_name',
         'email',
@@ -30,7 +31,8 @@ class User extends Authenticatable
         "mobile",
         "company_name",
         'address',
-        'email_verified_at'
+        'email_verified_at',
+        'active'
     ];
 
     public $timestamps = false;
@@ -61,6 +63,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function company()
+    {
+        // return true;
+        return $this->hasMany(company::class);
+    }
     public function setPasswordAttribute($value)
     {
         $this->attributes['password']=Hash::make($value);

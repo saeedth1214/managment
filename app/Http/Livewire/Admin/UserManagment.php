@@ -5,26 +5,37 @@ namespace App\Http\Livewire\Admin;
 use Livewire\Component;
 use App\Repositories\UserRepository;
 use Livewire\WithPagination;
-
 use App\Models\User;
-use Illuminate\Support\Facades\Validator;
+use App\Http\traits\message;
 
 class UserManagment extends Component
 {
     use WithPagination;
-
+    use message;
     public $state=[];
+    public $users=[];
+    private $userRepository;
     public $listeners=[
         'delete'=>'deleteUser',
         "refresh",
+        "activeUser"
     ];
 
+    public function __construct()
+    {
+        parent::__construct(null);
+        $this->userRepository=resolve(UserRepository::class);
+    }
     protected $paginationTheme = 'bootstrap';
+    public function mount ()
+    {
+        $this->users=$this->userRepository->all()->toArray();
+
+    }
 
     public function refresh()
     {
         $this->mount();
-        $this->render();
     }
 
     public function edit(User $user)
@@ -34,13 +45,12 @@ class UserManagment extends Component
 
     public function deleteConfrimed($userId)
     {
-
-        // dd($userId);
-        $this->dispatchBrowserEvent('swal:confrim', [
+        $this->dispatchBrowserEvent('swal:userConfrim', [
             'type' => 'warning',
-            'message' => 'آیا مطمعن هستید؟',
+            'message' => __( 'public.sureMessage'),
             'id'=>$userId
         ]);
+
     }
     public function deleteUser($id)
     {
@@ -48,11 +58,21 @@ class UserManagment extends Component
         $user->delete();
         $this->dispatchBrowserEvent('swal:modal', [
             'type' => 'success',
-            'message' => 'یک کاربر با موفقیت حذف شد',
+            'message' => __( 'public.deleteUser'),
         ]);
+        $this->mount();
+    }
+    public function activeUser($userId)
+    {
+        $result=$this->userRepository->activeUser($userId);
+        $result
+        ?
+            $this->setMessage(__('public.activeUser'))
+        :
+            $this->setMessage(__('public.failedMessage'),'error');
     }
     public function render()
     {
-        return view('livewire.admin.user-managment', ['users'=>User::paginate(3)]);
+        return view('livewire.admin.user-managment');
     }
 }

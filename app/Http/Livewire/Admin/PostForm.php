@@ -5,9 +5,11 @@ namespace App\Http\Livewire\Admin;
 use Livewire\Component;
 use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Validator;
+use App\Http\traits\message;
 
 class PostForm extends Component
 {
+    use message;
     private $userRepository;
     public $updateUser=false;
 
@@ -18,17 +20,21 @@ class PostForm extends Component
 
 
     public $listeners=[
-        'edit',
-        "resetState"
+            'edit',
+            "resetState"
 
-    ];
+        ];
+    public function __construct()
+    {
+        parent::__construct();
+        $this->userRepository=resolve(UserRepository::class);
+    }
 
     public function edit($user)
     {
         $this->state=$user;
         $this->userId=$user['id'];
         $this->updateUser=true;
-        $this->message='ویرایش با موفقیت انجام شد';
         $this->dispatchBrowserEvent('show-modal');
     }
 
@@ -58,14 +64,13 @@ class PostForm extends Component
             ],
             'address' => 'required',
         ])->validate();
-
-        $this->userRepository = resolve(UserRepository::class);
         $result = $this->userRepository->update($this->userId, $validateData);
         $this->dispatchBrowserEvent('closemodal');
         $result
             ?
-            $this->alertSuccess()
-            : $this->alertError();
+            $this->setMessage(__('public.updateSuccessUser'))
+            :
+            $this->setMessage(__('public.failedMessage'), 'error');
 
         $this->message = "";
         // $this->updateUser =false;
@@ -79,25 +84,19 @@ class PostForm extends Component
     }
     public function create()
     {
-        $validateData = $this->validateUser();
-
-        $this->message='ثبت نام با موفقیت انجام شد';
+        $validateData=$this->validateUser();
         $this->userRepository=resolve(UserRepository::class);
         $result=$this->userRepository->create($validateData);
 
         $this->dispatchBrowserEvent('closemodal');
         $result
         ?
-        $this->alertSuccess()
+        $this->setMessage(__('public.createSuccessUser'))
         :
-        $this->alertError();
-
-        $this->message="";
+        $this->setMessage(__('public.failedMessage'),'error');
         $this->resetFileds();
         $this->emit('refresh');
     }
-
-
     public function validateUser()
     {
         return Validator::make($this->state, [
@@ -116,25 +115,9 @@ class PostForm extends Component
             'address' => 'required',
         ])->validate();
     }
-    public function alertSuccess()
-    {
-        $this->dispatchBrowserEvent('swal:modal', [
-            'type' => 'success',
-            'message' => $this->message
-        ]);
-    }
-
-    public function alertError()
-    {
-        $this->dispatchBrowserEvent('swal:modal', [
-            'type' => 'error',
-            'message' => 'مشکلی در روند تغییرات به وجود امد',
-        ]);
-    }
-
+  
     public function render()
     {
-        
-            return view('livewire.admin.post-form');
+        return view('livewire.admin.post-form');
     }
 }

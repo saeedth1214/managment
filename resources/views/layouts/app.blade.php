@@ -9,8 +9,6 @@
 
 
     <link rel="stylesheet" href="{{ asset('css/app.css')}}">
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
-
     <livewire:styles/>
 
 </head>
@@ -143,8 +141,6 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
-            {{-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                 style="opacity: .8"> --}}
             <span class="brand-text font-weight-light">پنل مدیریت</span>
         </a>
 
@@ -152,14 +148,14 @@
         <div class="sidebar" style="direction: ltr">
             <div style="direction: rtl">
                 <!-- Sidebar user panel (optional) -->
-            {{-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
               <div class="image">
                 <img src="https://www.gravatar.com/avatar/52f0fbcbedee04a121cba8dad1174462?s=200&d=mm&r=g" class="img-circle elevation-2" alt="User Image">
               </div>
               <div class="info">
-                <a href="#" class="d-block">حسام موسوی</a>
+                <a href="#" class="d-block">سعید سلطانی</a>
               </div>
-            </div> --}}
+            </div>
 
             <!-- Sidebar Menu -->
                 <nav class="mt-2">
@@ -167,7 +163,7 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
-                        <li class="nav-item has-treeview menu-open">
+                        {{-- <li class="nav-item has-treeview menu-open">
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fa fa-dashboard"></i>
                                 <p>
@@ -195,273 +191,84 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a href={{route('admin.users')}} class="nav-link">
                                 <i class="nav-icon fa fa-users"></i>
                                 <p>
-                                    مدیریت کاربران
+                                     کاربران
+                                    {{--<span class="right badge badge-danger">جدید</span>--}}
+                                </p>
+                            </a>
+                        </li>
+                         <li class="nav-item">
+                            <a href={{route('admin.packages')}} class="nav-link">
+                                <i class="nav-icon fa fa-users"></i>
+                                <p>
+                                     پکیج ها
                                     {{--<span class="right badge badge-danger">جدید</span>--}}
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                        <a href="{{route('admin.companies')}}" class="nav-link">
                                 <i class="nav-icon fa fa-pie-chart"></i>
                                 <p>
-                                    چارت‌ها
-                                    <i class="right fa fa-angle-left"></i>
+                                     شرکت ها
+                                    {{-- <i class="right fa fa-angle-left"></i> --}}
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/charts/chartjs.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>نمودار ChartJS</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/charts/flot.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>نمودار Flot</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/charts/inline.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>نمودار Inline</p>
-                                    </a>
-                                </li>
-                            </ul>
+                       
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-tree"></i>
+                          <li class="nav-item has-treeview">
+                        <a href="{{route('admin.transactions')}}" class="nav-link">
+                                <i class="nav-icon fa fa-pie-chart"></i>
                                 <p>
-                                    اشیای گرافیکی
-                                    <i class="fa fa-angle-left right"></i>
+                                      تراکنش ها
+                                    {{-- <i class="right fa fa-angle-left"></i> --}}
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/UI/general.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>عمومی</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/UI/icons.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>آیکون‌ها</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/UI/buttons.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>دکمه‌ها</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/UI/sliders.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>اسلایدر‌ها</p>
-                                    </a>
-                                </li>
-                            </ul>
+                       
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-edit"></i>
+                           <li class="nav-item has-treeview">
+                        <a href="{{route('admin.alerts')}}" class="nav-link">
+                                <i class="nav-icon fa fa-pie-chart"></i>
                                 <p>
-                                    فرم‌ها
-                                    <i class="fa fa-angle-left right"></i>
+                                      پیغام ها 
+                                    {{-- <i class="right fa fa-angle-left"></i> --}}
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/forms/general.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>اجزا عمومی</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/forms/advanced.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>پیشرفته</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/forms/editors.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>ویشرایشگر</p>
-                                    </a>
-                                </li>
-                            </ul>
+                       
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-table"></i>
+                         <li class="nav-item has-treeview">
+                        <a href="{{route('admin.discounts')}}" class="nav-link">
+                                <i class="nav-icon fa fa-pie-chart"></i>
                                 <p>
-                                    جداول
-                                    <i class="fa fa-angle-left right"></i>
+                                      تخفیف ها 
+                                    {{-- <i class="right fa fa-angle-left"></i> --}}
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/tables/simple.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>جداول ساده</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/tables/data.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>جداول داده</p>
-                                    </a>
-                                </li>
-                            </ul>
+                       
                         </li>
-                        <li class="nav-header">مثال‌ها</li>
-                        <li class="nav-item">
-                            <a href="pages/calendar.html" class="nav-link">
-                                <i class="nav-icon fa fa-calendar"></i>
+                           <li class="nav-item has-treeview">
+                        <a href="{{route('admin.invoices')}}" class="nav-link">
+                                <i class="nav-icon fa fa-pie-chart"></i>
                                 <p>
-                                    تقویم
-                                    <span class="badge badge-info right">2</span>
+                                      صورتحساب 
+                                    {{-- <i class="right fa fa-angle-left"></i> --}}
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-envelope-o"></i>
+                        <a href="{{route('admin.devices')}}" class="nav-link">
+                                <i class="nav-icon fa fa-pie-chart"></i>
                                 <p>
-                                    ایمیل‌ باکس
-                                    <i class="fa fa-angle-left right"></i>
+                                      دستگاه ها 
+                                    {{-- <i class="right fa fa-angle-left"></i> --}}
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/mailbox/mailbox.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>اینباکس</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/mailbox/compose.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>ایجاد</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/mailbox/read-mail.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>خواندن</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-book"></i>
-                                <p>
-                                    صفحات
-                                    <i class="fa fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/examples/invoice.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>سفارشات</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/profile.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>پروفایل</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/login.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>صفحه ورود</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/register.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>صفحه عضویت</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/lockscreen.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>قفل صفحه</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-plus-square-o"></i>
-                                <p>
-                                    بیشتر
-                                    <i class="fa fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/examples/404.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>ارور 404</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/500.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>ارور 500</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/blank.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>صفحه خالی</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="starter.html" class="nav-link">
-                                        <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>صفحه شروع</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-header">متفاوت</li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-file"></i>
-                                <p>مستندات</p>
-                            </a>
-                        </li>
-                        <li class="nav-header">برچسب‌ها</li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-circle-o text-danger"></i>
-                                <p class="text">مهم</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-circle-o text-warning"></i>
-                                <p>هشدار</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa fa-circle-o text-info"></i>
-                                <p>اطلاعات</p>
-                            </a>
-                        </li>
+                       
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -471,28 +278,36 @@
 
     </aside>
     <div class="content-wrapper">
-
         <section class="content">
-
-            <div class="container-fluid">                
-        <livewire:admin.dashboard/>
-        <livewire:admin.user-managment/>
-
-        {{-- <livewire:test-hook/> --}}
-            </div>
+            <div class="container-fluid">           
+                    {{$slot}}
+            </div>          
         </section>
 
     </div>
 </div>
 <!-- ./wrapper -->
 
-{{-- @include('sweetalert::alert') --}}
 
 <livewire:scripts/>
-<script src={{ asset('js/app.js') }}></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+{{-- @stack('scripts') --}}
+<script src={{ asset('js/app.js') }}></script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" type="application/javascript"></script>
 <script>
+
+
+//  test rendering
+
+    // let checkBoxs=document.querySelectorAll('.checkbox');
+    // checkBoxs.forEach()
+
+window.addEventListener('checkFalse',function(){
+
+        $(".checkbox").prop("checked", false);
+});
+
     window.addEventListener('swal:modal', event => { 
     swal({
       title: event.detail.message,
@@ -501,7 +316,108 @@
     });
 });
 
-window.addEventListener('swal:confrim', event => { 
+
+
+window.addEventListener('swal:companyAlertConfrim', event => { 
+    swal({
+      title: event.detail.message,
+      text: event.detail.text,
+      icon: event.detail.type,
+      buttons:true,
+      dangerMode:true,
+    }).then((willDelete)=>{
+        if(willDelete){
+            window.livewire.emit('cancelAlertsFromCompany');
+        }
+    })
+});
+
+window.addEventListener('swal:discountConfrim', event => { 
+    swal({
+      title: event.detail.message,
+      text: event.detail.text,
+      icon: event.detail.type,
+      buttons:true,
+      dangerMode:true,
+    }).then((willDelete)=>{
+        if(willDelete){
+            window.livewire.emit('deleteConfimed',event.detail.data);
+        }
+    })
+});
+window.addEventListener('swal:alertConfrim', event => { 
+    swal({
+      title: event.detail.message,
+      text: event.detail.text,
+      icon: event.detail.type,
+      buttons:true,
+      dangerMode:true,
+    }).then((willDelete)=>{
+        if(willDelete){
+            window.livewire.emit('deleteConfimed',event.detail.data);
+        }
+    })
+});
+
+
+
+
+window.addEventListener('swal:deviceConfrim', event => { 
+    swal({
+      title: event.detail.message,
+      text: event.detail.text,
+      icon: event.detail.type,
+      buttons:true,
+      dangerMode:true,
+    }).then((willDelete)=>{
+        if(willDelete){
+            window.livewire.emit('deleteDeviecs');
+        }
+    })
+});
+
+window.addEventListener('swal:packageConfrim', event => { 
+    swal({
+      title: event.detail.message,
+      text: event.detail.text,
+      icon: event.detail.type,
+      buttons:true,
+      dangerMode:true,
+    }).then((willDelete)=>{
+        if(willDelete){
+            window.livewire.emit('deletePackages');
+        }
+    })
+});
+window.addEventListener('swal:invoiceConfrim', event => { 
+    swal({
+      title: event.detail.message,
+      text: event.detail.text,
+      icon: event.detail.type,
+      buttons:true,
+      dangerMode:true,
+    }).then((willDelete)=>{
+        if(willDelete){
+            window.livewire.emit('deleteInvoices');
+        }
+    })
+});
+
+window.addEventListener('swal:companyConfrim', event => { 
+    swal({
+      title: event.detail.message,
+      text: event.detail.text,
+      icon: event.detail.type,
+      buttons:true,
+      dangerMode:true,
+    }).then((willDelete)=>{
+        if(willDelete){
+            window.livewire.emit('deleteCompany');
+        }
+    })
+});
+
+window.addEventListener('swal:userConfrim', event => { 
     swal({
       title: event.detail.message,
       text: event.detail.text,
@@ -515,6 +431,52 @@ window.addEventListener('swal:confrim', event => {
     })
 });
 
+window.addEventListener('swal:setAlertToCompanyConfrim', event => { 
+    swal({
+      title: event.detail.message,
+      text: event.detail.text,
+      icon: event.detail.type,
+      buttons:true,
+      dangerMode:true,
+    }).then((willDelete)=>{
+        if(willDelete){
+            window.livewire.emit('createAlertToCompany');
+        }
+    })
+});
+
+$(".activeUser").on('change',function(){
+
+let userId=$(this).attr('data-userId');
+// alert(userId);
+
+    window.livewire.emit('activeUser',userId);
+
+});
+
+$(".salary").on('change',function(){
+
+// alert($(this).attr('data-packageId'));
+    let packageId=$(this).attr('data-packageId');
+    window.livewire.emit('activeSalary',packageId);
+
+});
+
+$(".activeCompany").on('change',function(){
+    let companyId=$(this).attr('data-companyId');
+    window.livewire.emit('activeCompany',companyId);            
+});
+
+$(".online").on('change',function(){
+
+// alert($(this).attr('data-packageId'));
+    let packageId=$(this).attr('data-packageId');
+    window.livewire.emit('activeConnected',packageId);
+
+});
+
+
+
 $("#userRegistred").on("hidden.bs.modal", function () {
 
 // alert('hidden modal');
@@ -522,16 +484,139 @@ $("#userRegistred").on("hidden.bs.modal", function () {
 });
 
 
+
+$("#displayAlert").on("hidden.bs.modal", function () {
+
+   window.livewire.emit('resetFileds');
+});
+
+
+$("#packageManager").on("hidden.bs.modal", function () {
+
+   window.livewire.emit('resetFileds');
+});
+
+
+
+
 window.addEventListener('show-modal', event => {
    $("#userRegistred").modal('show');
 })
 
-window.addEventListener('closemodal', event => {
-   $("#userRegistred").modal('hide');
-//    window.livewire.emit('setUserData',event.detail.user);
+window.addEventListener('resetDatePickerInput', event => {
+    $("#activationAtInput").val("");
+    $("#expiresInput").val("");
+    $("#lastRequestedAtInput").val("");
+    $("#deliveredateInput").val("");
+    $("#startInput").val("")
+    $("#endAtInput").val("")
+    // $("#select2").select2()
+
 })
 
-</script>
 
+
+window.addEventListener('closePackage', event => {
+   $("#packageManager").modal('hide');
+})
+window.addEventListener('updatePackage', event => {
+   $("#packageManager").modal('show');
+})
+window.addEventListener('closemodal', event => {
+   $("#userRegistred").modal('hide');
+   $("#displayAlert").modal('hide');
+})
+
+
+
+$('#alertDatePicker').MdPersianDateTimePicker({ 
+  targetTextSelector: '#alertDatePicker input',
+  dateFormat:"Y/m/d",
+  disableBeforeToday:true
+});
+
+
+$('#deviceDatePicker').MdPersianDateTimePicker({ 
+  targetTextSelector: '#deviceDatePicker input',
+  dateFormat:"Y/m/d",
+  disableBeforeToday:true
+});
+
+$('#discountDatePicker').MdPersianDateTimePicker({ 
+  targetTextSelector: '#discountDatePicker input',
+  dateFormat:"Y/m/d",
+  disableBeforeToday:true
+});
+
+
+$('#companyDatePicker').MdPersianDateTimePicker({ 
+  targetTextSelector: '#companyDatePicker input',
+  dateFormat:"Y/m/d",
+  disableBeforeToday:true
+});
+
+$('#discountDatePicker').on('change',function(){
+    let date=$(this).attr('data-discountDatePicker');
+    eval(date).set('state.expires_at',$("#expiresInput").val());
+});
+$('#companyDatePicker').on('change',function(){
+
+    let date=$(this).attr('data-companyDatePicker');
+    eval(date).set('state.activation_at',$("#activationAtInput").val());
+});
+
+$('#deviceDatePicker').on('change',function(){
+
+    let date=$(this).attr('data-deviceDatePicker');
+    eval(date).set('state.last_request_at',$("#lastRequestedAtInput").val());
+});
+$('#alertDatePicker').on('change',function(){
+
+    let date=$(this).attr('data-alertDatePicker');
+    eval(date).set('state.delivered_at',$("#deliveredateInput").val());
+
+});
+
+$('#startDatePicker').MdPersianDateTimePicker({ 
+  targetTextSelector: '#startDatePicker input',
+  dateFormat:"Y/m/d",
+  disableBeforeToday:true,
+//   rangeSelector:true,
+  fromDate:true,
+  groupId:'daterange'
+
+});
+
+$('#startDatePicker').on('change',function(){
+
+    let date=$(this).attr('data-startDatePicker');
+    eval(date).set('state.start_at',$("#startInput").val());
+
+});
+
+$('#endDatePicker').MdPersianDateTimePicker({ 
+  targetTextSelector: '#endDatePicker input',
+  dateFormat:"Y/m/d",
+  disableBeforeToday:true,
+  toDate:true,
+  groupId:'daterange'
+});
+
+$('#endDatePicker').on('change',function(){
+    let date=$(this).attr('data-endDatePicker');
+    eval(date).set('state.end_at',$("#endAtInput").val());
+});
+
+
+//    $('.select2').select2({
+//         // theme:'classic',
+//     });
+
+    $('#form').submit(function(){
+        let data=$("#select2").attr('data-selectedData');
+        eval(data).set("state.package_ids",$("#select2").val());
+    })
+
+</script>
 </body>
 </html>

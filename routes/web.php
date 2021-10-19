@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\TestHook;
-
-// use App\Http\Controllers\Admin\DashboardController;
-// use App\Http\Livewire\Admin\TestHook;
+use App\Http\Controllers\AlertController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,20 +20,29 @@ use App\Http\Livewire\TestHook;
 $frontNameSpace = "App\Http\Controllers\Frontend";
 $adminNameSpace = "App\Http\Livewire\Admin\\";
 
+
 Route::group(['prefix' => "admin", 'namespace' => $adminNameSpace], function () {
     Route::get('dashboard', Dashboard::class)->name('admin.dashboard');
     Route::get('users', UserManagment::class)->name('admin.users');
+    Route::get('packages', 'package\\'.PackageManagment::class)->name('admin.packages');
+    Route::get('companies', 'company\\'.CompanyManagment::class)->name('admin.companies');
+    Route::get('alerts', 'alert\\'.AlertManagment::class)->name('admin.alerts');
+    Route::get('discounts', 'discount\\'.DiscountManagment::class)->name('admin.discounts');
+    Route::get('invoices', 'invoice\\'.InvoiceManagment::class)->name('admin.invoices');
+    Route::get('transactions', 'Transaction\\'.TransactionManagment::class)->name('admin.transactions');
+    Route::get('devices', 'Device\\'.FetchDevicesManagment::class)->name('admin.devices');
+    Route::get('company/{company}/packages', 'company\\'.CompanyPackages::class)->name('admin.company-packages');
+    // test alert
+
+    Route::get('alerts', [ AlertController::class,'index'])->name('test.alert');
+    Route::get('payment', [ PaymentController::class,'payment'])->name('admin.payment');
+    Route::get('check', [ PaymentController::class,'check'])->name('admin.payment.check');
+    Route::get('verify', [ PaymentController::class,'verify'])->name('admin.payment.verify');
+    Route::get('transction/store', [ TransactionController::class,'store'])->name('admin.transaction.store');
+
+    // filters
+
+
+    Route::get('products',[ProductController::class,'index']);
+    
 });
-
-Route::get('test/hooks', TestHook::class)->name('test.hooks');
-
-
-
-
-
-
-
-// Route::view('/login', 'livewire.home');
-//Route::get('/', function () {
-//    return view('welcome');
-//});

@@ -13,13 +13,17 @@
         "axios": "^0.21",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14"
+        "postcss": "^8.1.14",
+        "select2": "^4.1.0-rc.0"
     },
     "dependencies": {
+        "@babel/preset-env": "^7.15.6",
         "@popperjs/core": "^2.10.1",
         "bootstrap": "^5.1.1",
         "bootstrap-v4-rtl": "^4.6.0-2",
         "jquery": "^3.6.0",
-        "jquery-validation": "^1.19.3"
+        "jquery-validation": "^1.19.3",
+        "md.bootstrappersiandatetimepicker": "^3.11.5",
+        "persian-datepicker": "^1.2.0"
     }
 }

@@ -5,6 +5,8 @@ use App\Http\Controllers\AlertController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\ProductController;
+use App\Http\Livewire\Home;
+use App\Http\Livewire\TestComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,8 @@ $frontNameSpace = "App\Http\Controllers\Frontend";
 $adminNameSpace = "App\Http\Livewire\Admin\\";
 
 
+Route::get('test/component',TestComponent::class);
+
 Route::group(['prefix' => "admin", 'namespace' => $adminNameSpace], function () {
     Route::get('dashboard', Dashboard::class)->name('admin.dashboard');
     Route::get('users', UserManagment::class)->name('admin.users');
@@ -34,15 +38,17 @@ Route::group(['prefix' => "admin", 'namespace' => $adminNameSpace], function () 
     Route::get('company/{company}/packages', 'company\\'.CompanyPackages::class)->name('admin.company-packages');
     // test alert
 
-    Route::get('alerts', [ AlertController::class,'index'])->name('test.alert');
+    Route::get('test-alerts', [ AlertController::class,'index'])->name('test.alert-controller');
     Route::get('payment', [ PaymentController::class,'payment'])->name('admin.payment');
     Route::get('check', [ PaymentController::class,'check'])->name('admin.payment.check');
     Route::get('verify', [ PaymentController::class,'verify'])->name('admin.payment.verify');
     Route::get('transction/store', [ TransactionController::class,'store'])->name('admin.transaction.store');
 
     // filters
-
-
     Route::get('products',[ProductController::class,'index']);
     
+    
 });
+
+
+

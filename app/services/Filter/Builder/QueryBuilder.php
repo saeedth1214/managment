@@ -58,15 +58,19 @@ class QueryBuilder extends FilterContract
     }
 
 
-    public function join()
+    public function join(string $table,string $primaryKey,string $pivoteKey)
     {
 
+        self::$subject=self::$subject->join($table,$primaryKey,$pivoteKey);
+        return $this;
     }
 
-    public function select ()
+    public function select (array $columns)
     {
-    }
+        self::$subject=self::$subject->select($columns);
+        return $this;
 
+    }
 
     
 }

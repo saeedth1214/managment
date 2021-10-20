@@ -4,10 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class Home extends Component
+class TestComponent extends Component
 {
     public function render()
     {
-        return view('welcome');
+        return view('livewire.test-component');
     }
 }

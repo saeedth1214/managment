@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Discount;
 
 use Livewire\Component;
 use App\Http\traits\message;
+use App\Models\alert;
 use Livewire\WithPagination;
 use App\Repositories\discountRepository;
 use Illuminate\Support\Facades\Validator;

@@ -46,7 +46,7 @@
 
         svg, video {
             display: block;
-            vertical-align: middle
+            /* vertical-align: middle */
         }
 
         video {
@@ -392,7 +392,6 @@
             }
         }
 
-        }
     </style>
 
     <style>

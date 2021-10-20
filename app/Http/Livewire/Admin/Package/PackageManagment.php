@@ -20,7 +20,7 @@ class PackageManagment extends Component
     private $packageRepository;
     public $deletedIds=[];
     public $state=[];
-    public $packages=[];
+    public $packages;
     public $updatePackage = false;
     protected $paginationTheme = 'bootstrap';
     protected $listeners = [

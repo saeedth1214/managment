@@ -11,14 +11,21 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
+        // dd('asdasd');
+
         $result=QueryBuilder::for(user::class, $request)
-        // ->allowedJoin('companies','users.id','companies.user_id')
+    
         ->allowedFilter('active')
-        ->allowedInclude('company')
-        ->allowedWithCount('company')
-        ->SelectResult('companies.database','full_name','email','active')
+        // ->allowedInclude('company')
+        // ->allowedWithCount('company')
+        // ->SelectResult('companies.database','full_name','email','active')
         ->GetResult();
 
         dd($result);
+    }
+
+    public function test()
+    {
+        dd('test');
     }
 }
